@@ -1,0 +1,47 @@
+:root {
+  --bmw: 40%;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 10%;
+  border: 2px solid blue;
+  justify-content: top;
+  align-items: left;
+}
+
+#button-div {
+  display: none;
+  flex-direction: column;
+  width: var(--bmw);
+  border: 2px solid red;
+}
+
+.menu-button#open {
+  background-image: url(assets/menu_icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  border: none;
+  width: var(--bmw);
+}
+
+.menu-button#open:hover {
+  filter: invert();
+  transition: filter .4s;
+}
+
+.menu-button#open:not(:hover) {
+  transition: filter .4s;
+}
+
+.menu-button {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+}
