@@ -7,8 +7,8 @@ input.addEventListener("change", event => {
   reader.addEventListener("load", () => {
     let arrayBuffer = new Uint8Array(reader.result)
     let blob = new Blob([arrayBuffer], {type: "image/png"})
-    var urlCreator = window.URL || window.webkitURL
-    var imageUrl = urlCreator.createObjectURL(blob)
+    let urlCreator = window.URL || window.webkitURL
+    let imageUrl = urlCreator.createObjectURL(blob)
     img.src = imageUrl
   })
   reader.readAsArrayBuffer(file)
