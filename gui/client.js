@@ -1,10 +1,15 @@
-// const setButton = document.getElementById('btn')
-// const titleInput = document.getElementById('title')
+const btnProva = document.getElementById("btn-prova")
+const parProva = document.getElementById("par-prova")
 
-// setButton.addEventListener('click', () => {
-//     // const title = titleInput.value
-//     // window.electronAPI.setTitle(title)
-// })
+btnProva.addEventListener("click", () => {
+    window.electronAPI.invoke("getData", [1,2,3])
+    .then(res => {
+        parProva.textContent = res
+    })
+    .catch(function(err) {
+        parProva.textContent = err
+    })
+})
 
 const openMenu = document.querySelector(".menu-button#open")
 const buttonDiv = document.getElementById("button-div")

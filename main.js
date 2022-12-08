@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain} = require('electron')
+const {app, BrowserWindow, ipcMain} = require("electron")
 const path = require('path')
 
 function createWindow () {
@@ -8,11 +8,17 @@ function createWindow () {
       }
   })
 
-  // ipcMain.on('set-title', (event, title) => {
-  //     const webContents = event.sender
-  //     const win = BrowserWindow.fromWebContents(webContents)
-  //     win.setTitle(title)
-  // })
+  ipcMain.handle("getData", async (event, args) => {
+    return new Promise((resolve, reject) => {
+      console.log(args)
+      if (true) {
+          resolve("this worked!")
+      } else {
+          reject("this didn't work!")
+      }
+    })
+  })
+
   mainWindow.loadFile(path.join(__dirname, "gui/index.html"))
 }
 
