@@ -1,10 +1,10 @@
 const {app, BrowserWindow, ipcMain} = require("electron")
-const path = require('path')
+const path = require("path")
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
       webPreferences: {
-          preload: path.join(__dirname, 'preload.js')
+          preload: path.join(__dirname, "preload.js")
       }
   })
 
@@ -25,11 +25,11 @@ function createWindow () {
 app.whenReady().then(() => {
   createWindow()
   
-  app.on('activate', () => {
+  app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })
 
-app.on('window-all-closed', function () {
+app.on("window-all-closed", () => {
   if (process.platform !== 'darwin') app.quit()
 })
